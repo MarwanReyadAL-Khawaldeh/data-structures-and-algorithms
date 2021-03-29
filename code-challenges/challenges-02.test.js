@@ -12,8 +12,8 @@ const raisedToTheThird = (arr) => {
   // Solution code here...
   let newArr=[];
   arr.forEach((val) => {
-    let newElement = Math.pow(val, 3);
-    newArr.push(newElement);
+    let num = Math.pow(val, 3);
+    newArr.push(num);
   });
   return newArr;
 };
