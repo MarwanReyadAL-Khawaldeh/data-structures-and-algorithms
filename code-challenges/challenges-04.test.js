@@ -25,8 +25,8 @@ Write a function named containsW that takes in a string. This function should us
 const containsW = (str) => {
   // Solution code here...
   let word = /w/;
-  word.test(str);
-  return word;
+  let word2 = word.test(str);
+  return word2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,8 +44,8 @@ For example:
 const isNum = (input) => {
   // Solution code here...
   let regNum = /[0-9]/;
-  regNum.test(input);
-  return regNum;
+  let num= regNum.test(input);
+  return num;
 
 };
 
@@ -59,8 +59,8 @@ Write a function named containsWorld that takes in a string or number of any len
 const containsWorld = (input) => {
   // Solution code here...
   let checkWorld = /world[a-z]*/;
-  checkWorld.test(input);
-  return checkWorld;
+  let world=checkWorld.test(input);
+  return world;
 
 };
 
