@@ -99,8 +99,6 @@ For example: charCode(['h','i']) returns [104, 105].
 
 const charCode = (arr) => {
   // Solution code here...
-  let arr2=arr.map(val =>( Math.pow(2,val)));
-  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
