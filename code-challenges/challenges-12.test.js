@@ -10,6 +10,10 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   // Solution code here...
+  let arr2 = arr.reduce((acc, val) => {
+    return acc > val ? acc : (acc = val);
+  });
+  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,6 +32,21 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
   // Solution code here...
+  let number = matrix.reduce((acc, val) => {
+    let num = val.reduce((num1, num2) => {
+      if (num2 > num1) {
+        num1 = num2;
+        return num1;
+      }
+      return num1;
+    }, 0);
+    if (num > acc) {
+      acc = num;
+    }
+    return acc;
+  }, 0);
+  return number;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,6 +65,14 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let number = matrix.reduce((acc, val) => {
+    acc += val.reduce((num1, num2) => {
+      num1 += num2;
+      return num1;
+    }, 0);
+    return acc;
+  }, 0);
+  return number;
 };
 
 
@@ -73,6 +100,16 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  let arr = [];
+  let sum = 0;
+  for (let i = 0; i < stores[0].length; i++) {
+    for (let j = 0; j < stores.length; j++) {
+      sum += stores[j][i];
+    }
+    arr.push(sum);
+    sum = 0;
+  }
+  return arr;
 
 };
 
@@ -88,6 +125,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  let Sale = data.map((item, index) => {
+    return { sales: `${item} cookies`, time: `${hours[index]}` };
+  });
+  return Sale;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,6 +155,17 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  let num = 0;
+  arr.forEach((value) => {
+    value.items.forEach((val) => {
+      if (val.name === 'Treats') {
+        num += val.quantity;
+
+        return num;
+      }
+    });
+  });
+  return num;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -228,13 +281,13 @@ describe('Testing challenge 1', () => {
 
 describe('Testing challenge 2', () => {
   test('It should return the max value', () => {
-    expect(findMax([[13,24,24,2], [2,5,6], [2,3]])).toStrictEqual(24);
+    expect(findMax([[13, 24, 24, 2], [2, 5, 6], [2, 3]])).toStrictEqual(24);
   });
 });
 
 describe('Testing challenge 3', () => {
   test('It should return the total sum', () => {
-    expect(totalSum([[13,24,24,2], [2,5,6], [2,3]])).toStrictEqual(81);
+    expect(totalSum([[13, 24, 24, 2], [2, 5, 6], [2, 3]])).toStrictEqual(81);
     expect(totalSum([])).toStrictEqual(0);
   });
 });
